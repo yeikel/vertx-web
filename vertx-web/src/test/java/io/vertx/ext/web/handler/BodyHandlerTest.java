@@ -788,7 +788,7 @@ public class BodyHandlerTest extends WebTestBase {
     Buffer buffer = Buffer.buffer("000000000000000000000000000000000000000000000000");
     router.route().handler(rc -> {
       try {
-        rc.getBodyAsJson(10);
+        rc.body().asJsonObject(10);
         // should not reach here!
         rc.fail(500);
       } catch (IllegalStateException e) {
@@ -809,7 +809,7 @@ public class BodyHandlerTest extends WebTestBase {
     Buffer buffer = Buffer.buffer("{\"k\":1111}");
     router.route().handler(rc -> {
       try {
-        rc.getBodyAsJson(10);
+        rc.body().asJsonObject(10);
         rc.end();
       } catch (IllegalStateException e) {
         // should not reach here!

@@ -117,7 +117,7 @@ class XhrTransport extends BaseTransport {
   }
 
   private void handleSend(RoutingContext rc, SockJSSession session) {
-    Buffer body = rc.getBody();
+    Buffer body = rc.body().buffer();
     if (body != null) {
       handleSendMessage(rc, session, body);
     } else if (rc.request().isEnded()) {
@@ -210,7 +210,7 @@ class XhrTransport extends BaseTransport {
   private class XhrStreamingListener extends BaseXhrListener {
 
     int bytesSent;
-    int maxBytesStreaming;
+    final int maxBytesStreaming;
 
     XhrStreamingListener(int maxBytesStreaming, RoutingContext rc, SockJSSession session) {
       super(rc, session);

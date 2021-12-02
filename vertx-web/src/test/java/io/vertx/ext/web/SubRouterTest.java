@@ -491,7 +491,7 @@ public class SubRouterTest extends WebTestBase {
       });
   }
 
-  @Test(expected = IllegalStateException.class)
+  @Test
   public void testSubRouterExclusive2() throws Exception {
     Router subRouter = Router.router(vertx);
 

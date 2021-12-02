@@ -151,8 +151,8 @@ public class BodyHandlerImpl implements BodyHandler {
     final long contentLength;
     Buffer body;
     boolean failed;
-    AtomicInteger uploadCount = new AtomicInteger();
-    AtomicBoolean cleanup = new AtomicBoolean(false);
+    final AtomicInteger uploadCount = new AtomicInteger();
+    final AtomicBoolean cleanup = new AtomicBoolean(false);
     boolean ended;
     long uploadSize = 0L;
     final boolean isMultipart;
@@ -306,7 +306,7 @@ public class BodyHandlerImpl implements BodyHandler {
       if (mergeFormAttributes && req.isExpectMultipart()) {
         req.params().addAll(req.formAttributes());
       }
-      context.setBody(body);
+      ((RoutingContextInternal) context).setBody(body);
       // release body as it may take lots of memory
       body = null;
 

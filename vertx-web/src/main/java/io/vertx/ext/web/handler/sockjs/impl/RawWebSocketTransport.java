@@ -43,7 +43,6 @@ import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.sockjs.SockJSHandlerOptions;
 import io.vertx.ext.web.handler.sockjs.SockJSSocket;
 import io.vertx.ext.web.impl.Origin;
-import io.vertx.ext.web.impl.Utils;
 
 /**
  * @author <a href="http://tfox.org">Tim Fox</a>
