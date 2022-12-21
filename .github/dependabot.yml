@@ -4,3 +4,12 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+- package-ecosystem: "maven"
+    directory: "vertx-template-engines/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "vertx-web-graphql/"
+    schedule:
+      interval: "daily"
+      
