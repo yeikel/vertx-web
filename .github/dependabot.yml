@@ -1,37 +1,31 @@
 version: 2
+
 updates:
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
       interval: "daily"
-
-  - package-ecosystem: "maven"
-    directory: "/vertx-web-graphql"
-    schedule:
-      interval: "daily"
     allow:
-      - dependency-name: "com.graphql-java:graphql-java"
-
-  - package-ecosystem: "maven"
-    directory: "/vertx-web-graphql"
-    target-branch: 4.x
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "com.graphql-java:graphql-java"
+      - dependency-name: "io.netty:*"
+      - dependency-name: "com.fasterxml.jackson.core:*"
+      - dependency-name: "com.fasterxml.jackson.module:*"
     ignore:
-      - dependency-name: "com.graphql-java:graphql-java"
+      # Allow only patch updates for Netty
+      - dependency-name: "io.netty:*"
         update-types:
-          - "version-update:semver-major"
-
+          - version-update:semver-major
+          - version-update:semver-minor
   - package-ecosystem: "maven"
-    directory: "/vertx-web-graphql"
-    target-branch: "5.0"
+    directory: "/core-io-deps"
     schedule:
       interval: "daily"
     allow:
-      - dependency-name: "com.graphql-java:graphql-java"
+      - dependency-name: "io.netty:*"
+      - dependency-name: "com.fasterxml.jackson.core:*"
+      - dependency-name: "com.fasterxml.jackson.module:*"
     ignore:
-      - dependency-name: "com.graphql-java:graphql-java"
+      # Allow only patch updates for Netty
+      - dependency-name: "io.netty:*"
         update-types:
-          - "version-update:semver-major"
+          - version-update:semver-major
+          - version-update:semver-minor
